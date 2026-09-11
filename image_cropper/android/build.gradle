@@ -38,7 +38,10 @@ android {
         disable 'InvalidPackage'
     }
     dependencies {
-        implementation 'com.github.yalantis:ucrop:2.2.11'
+        // Forked uCrop 2.2.11 with a fix for the crop-bounds crash (issue #408):
+        // "java.lang.IllegalArgumentException: x + width must be <= bitmap.width()".
+        // Source: https://github.com/putnokiabel/uCrop/tree/fix/408-on-2.2.11
+        implementation 'com.github.putnokiabel:uCrop:2.2.11-408fix'
         implementation 'androidx.preference:preference:1.2.1'
     }
 }
